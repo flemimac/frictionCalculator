@@ -12,7 +12,6 @@ class Calculator(QMainWindow):
         self.setWindowTitle("Калькулятор")
         self.groupReynolds.hide()
         self.buttonStart.clicked.connect(self.countingReynolds)
-        
     def countingReynolds(self):
         lineLiquindDensity =  float(self.lineLiquidDensity.text())
         lineLiquidSpeed = float(self.lineLiquidSpeed.text())
