@@ -19,7 +19,7 @@
   <property name="maximumSize">
    <size>
     <width>490</width>
-    <height>355</height>
+    <height>500</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -32,7 +32,7 @@
       <x>30</x>
       <y>20</y>
       <width>431</width>
-      <height>102</height>
+      <height>105</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="layoutInput">
@@ -70,7 +70,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Диаметр трубы - d [м]:</string>
+          <string>Диаметр трубы - d [мм]:</string>
          </property>
         </widget>
        </item>
@@ -82,7 +82,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Динамический коэффициент вязкости - μ [Па * с]:</string>
+          <string>Динамический коэффициент вязкости - μ [Па*с*10^-6]:</string>
          </property>
         </widget>
        </item>
@@ -146,9 +146,9 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>170</y>
-      <width>271</width>
-      <height>111</height>
+      <y>160</y>
+      <width>291</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="title">
@@ -190,6 +190,50 @@
        </layout>
       </item>
      </layout>
+    </widget>
+    <widget class="QFrame" name="groupLedges">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>100</y>
+       <width>291</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="ledges">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>192</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Средняя высота выступа - [мм]:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineLedges">
+      <property name="geometry">
+       <rect>
+        <x>198</x>
+        <y>0</y>
+        <width>91</width>
+        <height>19</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QLabel" name="labelValueFriction">
