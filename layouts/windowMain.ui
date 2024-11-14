@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Calculator</class>
- <widget class="QMainWindow" name="Calculator">
+ <class>mainWindow</class>
+ <widget class="QMainWindow" name="mainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -283,6 +283,19 @@
     </property>
     <property name="text">
      <string>Посчитать</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonCheckData">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>280</y>
+      <width>70</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Данные</string>
     </property>
    </widget>
   </widget>
