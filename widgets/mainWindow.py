@@ -3,7 +3,7 @@ import math
 from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 
-from widgets.addDataWindow import AddData
+from widgets.dataWindow import Data
 
 class Calculator(QMainWindow):
     def __init__(self):
@@ -12,7 +12,7 @@ class Calculator(QMainWindow):
         self.setWindowTitle("Калькулятор")
         self.groupReynolds.hide()
         
-        self.addData = AddData()
+        self.Data = Data()
         
         self.buttonStart.clicked.connect(self.countingReynolds)
         self.buttonCheckData.clicked.connect(self.open_addData)
@@ -79,4 +79,4 @@ class Calculator(QMainWindow):
             self.labelValueFriction.setText(str(f"{valueFriction:3f}"))
             
     def open_addData(self):
-        self.addData.show()
+        self.Data.show()

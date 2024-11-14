@@ -288,14 +288,14 @@
    <widget class="QPushButton" name="buttonCheckData">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>280</y>
-      <width>70</width>
+      <x>350</x>
+      <y>290</y>
+      <width>120</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Данные</string>
+     <string>Данные плотностей</string>
     </property>
    </widget>
   </widget>
