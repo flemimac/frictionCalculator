@@ -54,21 +54,18 @@ class Data(QMainWindow):
         self.loadData()
         
     def editDensity(self):
-        selected_index = self.tableData.currentIndex()  # Получаем выделенный индекс
+        selected_index = self.tableData.currentIndex()
         if not selected_index.isValid():
             print("Пожалуйста, выберите строку для редактирования.")
             return
-        
-        # Получаем данные из выбранной строки
+
         selected_row = selected_index.row()
         density_item = self.tableData.model().item(selected_row, 0).text()
         value_item = self.tableData.model().item(selected_row, 1).text()
-
-        # Здесь вы можете создать новое окно для ввода новых значений
-        new_density, ok1 = QInputDialog.getText(self, "Редактирование плотности", "Введите новую плотность:", text=density_item)
-        new_value, ok2 = QInputDialog.getText(self, "Редактирование значения", "Введите новое значение:", text=value_item)
+        
+        new_density, ok1 = QInputDialog.getText(self, "Редактирование", "Введите новую плотность:", text=density_item)
+        new_value, ok2 = QInputDialog.getText(self, "Редактирование", "Введите новое значение:", text=value_item)
 
         if ok1 and ok2:
-            # Обновляем данные в базе данных
-            updateData(density_item, new_density, new_value)  # Передаем старую и новую плотность и значение
-            self.loadData()  # Перезагружаем данные в таблице
+            updateData(density_item, new_density, new_value)
+            self.loadData()

@@ -23,3 +23,18 @@ def updateData(old_density, new_density, new_value):
     query = "UPDATE densities SET density = ?, value = ? WHERE density = ?"
     cursor.execute(query, (new_density, new_value, old_density))
     connection.commit()
+    
+def fetchMaterials(material):
+    cursor.execute("SELECT value FROM densities WHERE density=?", (material,))
+    result = cursor.fetchone()
+    
+    return result[0]
+    
+def loadMaterials(combo_box):
+    cursor.execute("SELECT density FROM densities")
+    materials = cursor.fetchall()
+
+    for material in materials:
+        combo_box.addItem(material[0])
+
+    connection.close()

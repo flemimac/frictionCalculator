@@ -4,6 +4,9 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 
 from widgets.dataWindow import Data
+from database.requests import fetchMaterials, loadMaterials
+
+import sqlite3
 
 class Calculator(QMainWindow):
     def __init__(self):
@@ -14,12 +17,17 @@ class Calculator(QMainWindow):
         
         self.Data = Data()
         
+        # загрузка материалов в комбобокс
+        loadMaterials(self.lineLiquidDensityComboBox)
+        
         self.buttonStart.clicked.connect(self.countingReynolds)
         self.buttonCheckData.clicked.connect(self.open_addData)
         
+
         
     def countingReynolds(self):
-        self.inputLiquidDensity =  float(self.lineLiquidDensity.text())
+        self.inputLiquidDensity = fetchMaterials(self.lineLiquidDensityComboBox.currentText())
+        # self.inputLiquidDensity =  float(self.lineLiquidDensity.text())
         self.inputLiquidSpeed = float(self.lineLiquidSpeed.text())
         self.inputPipeDiameter = float(self.linePipeDiameter.text()) * 10**3
         self.inputDynamicCoeffLiquid = float(self.lineDynamicCoeffLiquid.text()) * 10**(-6)
