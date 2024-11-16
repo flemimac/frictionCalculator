@@ -4,9 +4,8 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 
 from widgets.dataWindow import Data
-from database.requests import fetchMaterials, loadMaterials
-
-import sqlite3
+from widgets.answersWindow import Results
+from database.DataDensities.requests import fetchMaterials, loadMaterials
 
 class Calculator(QMainWindow):
     def __init__(self):
@@ -16,12 +15,14 @@ class Calculator(QMainWindow):
         self.groupReynolds.hide()
         
         self.Data = Data()
+        self.Results = Results()
         
         # загрузка материалов в комбобокс
         loadMaterials(self.lineLiquidDensityComboBox)
         
         self.buttonStart.clicked.connect(self.countingReynolds)
-        self.buttonCheckData.clicked.connect(self.open_addData)
+        self.buttonCheckData.clicked.connect(self.openAddData)
+        self.buttonCheckResults.clicked.connect(self.openResults)
         
 
         
@@ -86,5 +87,8 @@ class Calculator(QMainWindow):
             valueFriction = (2 * math.log10(1 / self.valueReynoldsM) + 1.74) ** -2
             self.labelValueFriction.setText(str(f"{valueFriction:3f}"))
             
-    def open_addData(self):
+    def openAddData(self):
         self.Data.show()
+        
+    def openResults(self):
+        self.Results.show()

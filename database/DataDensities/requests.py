@@ -1,8 +1,21 @@
 import sqlite3
+import os
 
 connection = sqlite3.connect('densities.db')
 cursor = connection.cursor()
-    
+
+def createData():
+    if not os.path.exists('densities.db'):
+        cursor.execute('''
+            CREATE TABLE densities (
+                id      INTEGER PRIMARY KEY
+                                UNIQUE
+                                NOT NULL,
+                density TEXT,
+                value   INTEGER
+            );''')
+        connection.commit()
+
 def fetchData():
     cursor.execute("SELECT density, value FROM densities")
     data = cursor.fetchall()
@@ -36,5 +49,3 @@ def loadMaterials(combo_box):
 
     for material in materials:
         combo_box.addItem(material[0])
-
-    connection.close()

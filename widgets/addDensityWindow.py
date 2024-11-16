@@ -1,7 +1,7 @@
 from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 
-from database.requests import addData 
+from database.DataDensities.requests import addData 
 
 class AddDensity(QMainWindow):
     def __init__(self):

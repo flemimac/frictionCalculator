@@ -2,7 +2,7 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow, QInputDialog
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 
-from database.requests import fetchData, deleteData, updateData
+from database.DataDensities.requests import fetchData, deleteData, updateData, createData
 from widgets.addDensityWindow import AddDensity
 
 class Data(QMainWindow):
@@ -16,7 +16,7 @@ class Data(QMainWindow):
         self.buttonEditDensity.clicked.connect(self.editDensity)
         self.buttonDeleteDensity.clicked.connect(self.deleteDensity)
         self.buttonRestartDensity.clicked.connect(self.loadData)
-        
+        createData()
         self.loadData()
     
     def loadData(self):
@@ -55,6 +55,7 @@ class Data(QMainWindow):
         
     def editDensity(self):
         selected_index = self.tableData.currentIndex()
+        
         if not selected_index.isValid():
             print("Пожалуйста, выберите строку для редактирования.")
             return
