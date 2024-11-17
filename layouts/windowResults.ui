@@ -24,7 +24,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="buttonDeleteAnswer">
+   <widget class="QPushButton" name="buttonDeleteResults">
     <property name="geometry">
      <rect>
       <x>380</x>
@@ -37,7 +37,7 @@
      <string>Удалить</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="buttonRestartAnswer">
+   <widget class="QPushButton" name="buttonRestartResults">
     <property name="geometry">
      <rect>
       <x>380</x>
@@ -48,6 +48,19 @@
     </property>
     <property name="text">
      <string>Обновить</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonClearResults">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>250</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Очистить</string>
     </property>
    </widget>
   </widget>

@@ -4,8 +4,10 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 
 from widgets.dataWindow import Data
-from widgets.answersWindow import Results
+from widgets.resultsWindow import Results
+
 from database.DataDensities.requests import fetchMaterials, loadMaterials
+from database.DataResults.requests import addData
 
 class Calculator(QMainWindow):
     def __init__(self):
@@ -41,7 +43,8 @@ class Calculator(QMainWindow):
         if self.valueReynolds < 2300:
             valueFriction = 64 / self.valueReynolds
             
-            self.labelValueFriction.setText(str(f"{valueFriction:3f}"))
+            self.labelValueFriction.setText(str(f"{valueFriction:.3f}"))
+            addData(valueFriction)
             print(1, valueFriction)
         else:
             self.groupReynolds.show()
@@ -54,12 +57,14 @@ class Calculator(QMainWindow):
         if self.valueReynolds < 10**5:
             valueFriction = 0.3164 / pow(self.valueReynolds, (1 / 4))
             
-            self.labelValueFriction.setText(str(f"{valueFriction:3f}"))
+            self.labelValueFriction.setText(str(f"{valueFriction:.3f}"))
+            addData(f"{valueFriction:.3f}")
             print(2, valueFriction)
         else:
             valueFriction = (1.8 * math.log10(self.valueReynolds) - 1.5)**(-2)
             
-            self.labelValueFriction.setText(str(f"{valueFriction:3f}"))
+            self.labelValueFriction.setText(str(f"{valueFriction:.3f}"))
+            addData(f"{valueFriction:.3f}")
             print(3, valueFriction)
             
     def countingFrictionYes(self):
@@ -74,18 +79,22 @@ class Calculator(QMainWindow):
             if self.valueReynoldsM < 10**5:
                 valueFriction = 0.3164 / pow(self.valueReynoldsM, (1 / 4))
             
-                self.labelValueFriction.setText(str(f"{valueFriction:3f}"))
+                self.labelValueFriction.setText(str(f"{valueFriction:.3f}"))
+                addData(f"{valueFriction:.3f}")
                 print(2, valueFriction)
             else:
                 valueFriction = (1.8 * math.log10(self.valueReynoldsM) - 1.5)**(-2)
             
-                self.labelValueFriction.setText(str(f"{valueFriction:3f}"))
+                self.labelValueFriction.setText(str(f"{valueFriction:.3f}"))
+                addData(f"{valueFriction:.3f}")
         elif 10 <= self.valueReynoldsM < 500:
             valueFriction = (0.1 * (1.46 * self.valueReynoldsM + (100 / self.valueReynolds))**0.25)
-            self.labelValueFriction.setText(str(f"{valueFriction:3f}"))
+            self.labelValueFriction.setText(str(f"{valueFriction:.3f}"))
+            addData(f"{valueFriction:.3f}")
         else:
             valueFriction = (2 * math.log10(1 / self.valueReynoldsM) + 1.74) ** -2
-            self.labelValueFriction.setText(str(f"{valueFriction:3f}"))
+            self.labelValueFriction.setText(str(f"{valueFriction:.3f}"))
+            addData(f"{valueFriction:.3f}")
             
     def openAddData(self):
         self.Data.show()

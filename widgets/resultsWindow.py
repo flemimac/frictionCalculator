@@ -2,16 +2,18 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 
-from database.DataAnswers.requests import fetchData, deleteData, createData
+from database.DataResults.requests import *
 
 class Results(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('layouts\windowAnswer.ui', self)
+        uic.loadUi('layouts\windowResults.ui', self)
         self.setWindowTitle("Данные")
         
-        self.buttonDeleteAnswer.clicked.connect(self.deleteAnswer)
-        self.buttonRestartAnswer.clicked.connect(self.loadData)
+        self.buttonDeleteResults.clicked.connect(self.deleteResults)
+        self.buttonClearResults.clicked.connect(self.clearResults)
+        self.buttonRestartResults.clicked.connect(self.loadData)
+        
         createData()
         self.loadData()
     
@@ -19,7 +21,7 @@ class Results(QMainWindow):
         data = fetchData()
         
         model = QStandardItemModel()
-        model.setHorizontalHeaderLabels(['Значение'])
+        model.setHorizontalHeaderLabels(['Номер', 'Значение'])
 
         for row in data:
             items = [QStandardItem(str(item)) for item in row]
@@ -28,7 +30,7 @@ class Results(QMainWindow):
         self.tableAnswer.setModel(model)
         
     
-    def deleteAnswer(self):
+    def deleteResults(self):
         selected_indexes = self.tableAnswer.selectedIndexes()
         
         if not selected_indexes:
@@ -38,9 +40,13 @@ class Results(QMainWindow):
         selected_row = selected_indexes[0].row()
         model = self.tableAnswer.model()
         
-        value = model.item(selected_row, 0).text()
+        number = model.item(selected_row, 0).text()
+        value = model.item(selected_row, 1).text()
 
-        deleteData(value)
+        deleteData(number)
 
         self.loadData()
         
+    def clearResults(self):
+        clearData()
+        self.loadData()

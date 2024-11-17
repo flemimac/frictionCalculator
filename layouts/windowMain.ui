@@ -30,9 +30,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>20</y>
+      <y>10</y>
       <width>451</width>
-      <height>105</height>
+      <height>110</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="layoutInput">
@@ -46,7 +46,7 @@
           </font>
          </property>
          <property name="text">
-          <string>Плотность жидкости - ρ [кг/м³]:</string>
+          <string>Выберите плотность жидкости - ρ [кг/м³]:</string>
          </property>
         </widget>
        </item>
@@ -110,7 +110,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>130</y>
+      <y>120</y>
       <width>230</width>
       <height>16</height>
      </rect>
@@ -128,7 +128,7 @@
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>130</y>
+      <y>120</y>
       <width>100</width>
       <height>16</height>
      </rect>
@@ -146,7 +146,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>160</y>
+      <y>150</y>
       <width>291</width>
       <height>101</height>
      </rect>
@@ -159,13 +159,18 @@
       <rect>
        <x>50</x>
        <y>20</y>
-       <width>161</width>
+       <width>180</width>
        <height>51</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalRoughness">
       <item>
        <widget class="QLabel" name="labelRoughness">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string> Есть ли шероховатость труб?</string>
         </property>
@@ -224,7 +229,7 @@
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>270</y>
+      <y>260</y>
       <width>100</width>
       <height>16</height>
      </rect>
@@ -242,7 +247,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>270</y>
+      <y>260</y>
       <width>230</width>
       <height>16</height>
      </rect>
@@ -260,7 +265,7 @@
     <property name="geometry">
      <rect>
       <x>365</x>
-      <y>130</y>
+      <y>120</y>
       <width>105</width>
       <height>23</height>
      </rect>
@@ -273,7 +278,7 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>270</y>
+      <y>260</y>
       <width>120</width>
       <height>23</height>
      </rect>
@@ -286,13 +291,26 @@
     <property name="geometry">
      <rect>
       <x>340</x>
-      <y>240</y>
+      <y>200</y>
       <width>120</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
      <string>Результаты</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonCheckGraph">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>230</y>
+      <width>120</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Построить график</string>
     </property>
    </widget>
   </widget>
