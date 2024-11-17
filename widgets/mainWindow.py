@@ -5,9 +5,10 @@ from PyQt6.QtWidgets import QMainWindow
 
 from widgets.dataWindow import Data
 from widgets.resultsWindow import Results
+from widgets.graphWindow import Graph
 
 from database.DataDensities.requests import fetchMaterials, loadMaterials
-from database.DataResults.requests import addData
+from database.DataResults.requests import addData, allData
 
 class Calculator(QMainWindow):
     def __init__(self):
@@ -18,6 +19,7 @@ class Calculator(QMainWindow):
         
         self.Data = Data()
         self.Results = Results()
+        self.Graph = Graph()
         
         # загрузка материалов в комбобокс
         loadMaterials(self.lineLiquidDensityComboBox)
@@ -25,12 +27,12 @@ class Calculator(QMainWindow):
         self.buttonStart.clicked.connect(self.countingReynolds)
         self.buttonCheckData.clicked.connect(self.openAddData)
         self.buttonCheckResults.clicked.connect(self.openResults)
+        self.buttonCheckGraph.clicked.connect(self.openGraph)
         
 
         
     def countingReynolds(self):
         self.inputLiquidDensity = fetchMaterials(self.lineLiquidDensityComboBox.currentText())
-        # self.inputLiquidDensity =  float(self.lineLiquidDensity.text())
         self.inputLiquidSpeed = float(self.lineLiquidSpeed.text())
         self.inputPipeDiameter = float(self.linePipeDiameter.text()) * 10**3
         self.inputDynamicCoeffLiquid = float(self.lineDynamicCoeffLiquid.text()) * 10**(-6)
@@ -48,7 +50,6 @@ class Calculator(QMainWindow):
             print(1, valueFriction)
         else:
             self.groupReynolds.show()
-            # self.groupLedges.hide()
             
             self.buttonRoughnessNo.clicked.connect(self.countingFrictionNo)
             self.buttonRoughnessYes.clicked.connect(self.countingFrictionYes)
@@ -68,8 +69,6 @@ class Calculator(QMainWindow):
             print(3, valueFriction)
             
     def countingFrictionYes(self):
-        # self.groupLedges.show()
-        
         self.ledges = float(self.lineLedges.text())
         self.valueReynoldsM = (self.ledges / self.inputPipeDiameter) * self.valueReynolds
 
@@ -101,3 +100,7 @@ class Calculator(QMainWindow):
         
     def openResults(self):
         self.Results.show()
+        
+    def openGraph(self):
+        data = allData()
+        self.Graph.plot_graph(data) 

@@ -34,3 +34,9 @@ def addData(value):
 def clearData():
     cursor.execute("DELETE FROM answers")
     connection.commit()
+    
+def allData():
+    cursor.execute("SELECT value FROM answers")
+    values = cursor.fetchall()
+    
+    return [value[0] for value in values] 
