@@ -8,7 +8,7 @@ class Results(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('layouts\windowResults.ui', self)
-        self.setWindowTitle("Данные")
+        self.setWindowTitle("Результаты")
         
         self.buttonDeleteResults.clicked.connect(self.deleteResults)
         self.buttonClearResults.clicked.connect(self.clearResults)
