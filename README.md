@@ -1,4 +1,68 @@
-# Калькулятор расчета коэффициента сопротивления трения
+# EN | Calculator for calculating the coefficient of friction resistance
+
+**Calculator for calculating the coefficient of friction resistance** is a calculator designed to calculate the coefficient of friction resistance during the flow of liquid in pipes. It provides the ability to save calculation results and build graphs based on this data.
+
+## 📋 Main Functions
+
+- **Calculation of the coefficient of friction**:
+You can enter initial data such as:
+- Liquid density
+  - The speed of the liquid
+  - Pipe diameter
+  - Dynamic viscosity coefficient
+  - The average height of the projections (if necessary)
+
+  As a result, you will get the calculated coefficient of friction resistance.
+
+- **Adding densities**:
+It is possible to add densities of various liquids to the database for more efficient calculation. You can also delete and modify existing data.
+
+- **Viewing the results**:
+You can view the calculation results stored in the database. The function of deleting individual results or clearing all results is also available.
+
+- **Plotting**: 
+  Build a graph based on the calculation results. The graph will be saved in JPG format to the project folder.
+
+## 🛠️ Installing the project
+
+Follow these steps to install and run the project:
+
+###1. **Cloning the repository**:
+   
+
+```git clone https://github.com/flemimac/frictionCalculator.git```
+
+### 2. **Going to the frictionCalculator directory**:
+
+```cd frictionCalculator```
+
+###3. **Creating a virtual environment**:
+
+```py -m venv venv```
+
+### 4. **Activation of the virtual environment**:
+- For Windows: ```venv\Scripts\activate.bat```
+- For macOS/Linux: ``source venv/bin/activate``
+
+### 5. **Installing dependencies**:
+
+```pip install -r requirements.txt```
+
+### 6. **Project Launch**:
+
+```py main.py```
+
+## 💻 Usage
+
+After starting the program, follow the on-screen instructions to perform calculations and work with the data.
+
+## ✒️ Contribution
+
+If you want to contribute to the project, please create a fork of the repository and send a pull request with your changes.
+
+---
+
+# RU | Калькулятор расчета коэффициента сопротивления трения
 
 **Калькулятор расчета коэффициента сопротивления трения** - это калькулятор, предназначенный для расчета коэффициента сопротивления трения при течении жидкости в трубах. Он предоставляет возможность сохранять результаты расчетов и строить графики на основе этих данных.
 
@@ -59,7 +123,3 @@
 ## ✒️ Контрибьюция
 
 Если вы хотите внести свой вклад в проект, пожалуйста, создайте форк репозитория и отправьте пулл-реквест с вашими изменениями.
-
----
-
-Спасибо за использование **Калькулятора расчета коэффициента сопротивления трения**! Если у вас есть вопросы или предложения, не стесняйтесь обращаться.
