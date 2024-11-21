@@ -36,7 +36,7 @@ Follow these steps to install and run the project:
 
 ```cd frictionCalculator```
 
-###3. **Creating a virtual environment**:
+### 3. **Creating a virtual environment**:
 
 ```py -m venv venv```
 
