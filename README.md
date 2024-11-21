@@ -27,7 +27,7 @@ You can view the calculation results stored in the database. The function of del
 
 Follow these steps to install and run the project:
 
-###1. **Cloning the repository**:
+### 1. **Cloning the repository**:
    
 
 ```git clone https://github.com/flemimac/frictionCalculator.git```
