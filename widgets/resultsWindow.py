@@ -1,5 +1,7 @@
+import csv
+
 from PyQt6 import uic
-from PyQt6.QtWidgets import QMainWindow
+from PyQt6.QtWidgets import QMainWindow, QMessageBox
 from PyQt6.QtGui import QStandardItemModel, QStandardItem
 
 from database.DataResults.requests import *
@@ -11,6 +13,7 @@ class Results(QMainWindow):
         self.setWindowTitle("Результаты")
         
         self.buttonDeleteResults.clicked.connect(self.deleteResults)
+        self.buttonSaveResults.clicked.connect(self.saveResults)
         self.buttonClearResults.clicked.connect(self.clearResults)
         self.buttonRestartResults.clicked.connect(self.loadData)
         
@@ -46,6 +49,14 @@ class Results(QMainWindow):
         deleteData(number)
 
         self.loadData()
+        
+    def saveResults(self):
+        with open('results.csv', mode='w', newline='') as csv_file:
+            writer = csv.writer(csv_file)
+            writer.writerow(['id', 'Значение'])
+            writer.writerows(saveData())
+
+        QMessageBox.information(self, "Успех", "Результаты успешно сохранены в results.csv")
         
     def clearResults(self):
         clearData()

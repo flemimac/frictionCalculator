@@ -1,19 +1,17 @@
 import sqlite3
-import os
 
-connection = sqlite3.connect('results.db')
+connection = sqlite3.connect('database.db')
 cursor = connection.cursor()
 
 def createData():
-    if not os.path.exists('results.db'):
-        cursor.execute('''
-            CREATE TABLE answers (
-                id      INTEGER PRIMARY KEY
-                                UNIQUE
-                                NOT NULL,
-                value   INTEGER
-            );''')
-        connection.commit()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS answers (
+            id      INTEGER PRIMARY KEY
+                            UNIQUE
+                            NOT NULL,
+            value   INTEGER
+        );''')
+    connection.commit()
 
 def fetchData():
     cursor.execute("SELECT id, value FROM answers")
@@ -40,3 +38,9 @@ def allData():
     values = cursor.fetchall()
     
     return [value[0] for value in values] 
+
+def saveData():
+    cursor.execute("SELECT id, value FROM answers")
+    results = cursor.fetchall()
+    
+    return results

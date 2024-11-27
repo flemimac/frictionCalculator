@@ -1,20 +1,16 @@
 import sqlite3
-import os
 
-connection = sqlite3.connect('densities.db')
+connection = sqlite3.connect('database.db')
 cursor = connection.cursor()
 
 def createData():
-    if not os.path.exists('densities.db'):
-        cursor.execute('''
-            CREATE TABLE densities (
-                id      INTEGER PRIMARY KEY
-                                UNIQUE
-                                NOT NULL,
-                density TEXT,
-                value   INTEGER
-            );''')
-        connection.commit()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS densities (
+            id      INTEGER PRIMARY KEY UNIQUE NOT NULL,
+            density TEXT,
+            value   INTEGER
+        );''')
+    connection.commit()
 
 def fetchData():
     cursor.execute("SELECT density, value FROM densities")

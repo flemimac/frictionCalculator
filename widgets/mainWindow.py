@@ -2,6 +2,7 @@ import math
 
 from PyQt6 import uic
 from PyQt6.QtWidgets import QMainWindow, QMessageBox
+from PyQt6.QtGui import QIcon
 
 from widgets.dataWindow import Data
 from widgets.resultsWindow import Results
@@ -15,6 +16,7 @@ class Calculator(QMainWindow):
         super().__init__()
         uic.loadUi('layouts\windowMain.ui', self)
         self.setWindowTitle("Калькулятор")
+        self.setWindowIcon(QIcon('images/logo.png')) 
         self.groupReynolds.hide()
         
         self.Data = Data()
